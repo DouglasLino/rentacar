@@ -140,6 +140,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Alquiler.cs" />
+    <Compile Include="Models\Contexto.cs" />
+    <Compile Include="Models\Marcas.cs" />
+    <Compile Include="Models\Modelos.cs" />
+    <Compile Include="Models\TipoVehiculos.cs" />
+    <Compile Include="Models\Vehiculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
