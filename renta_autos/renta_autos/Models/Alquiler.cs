@@ -9,6 +9,7 @@ namespace renta_autos.Models
     public class Alquiler
     {
         //Atributos / campos de clase y tabla
+        [Key]
         public int Id_alquiler { get; set; }
 
         [Required(ErrorMessage = "El cliente es requerido")]
