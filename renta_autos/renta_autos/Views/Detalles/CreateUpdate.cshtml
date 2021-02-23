@@ -1,0 +1,92 @@
+﻿@model renta_autos.Models.Alquiler
+@using renta_autos.Models;
+@{
+    ViewBag.Title = "CreateUpdate";
+}
+<br />
+
+@*<center>
+        @if(Alquiler.Id_alquiler >0)
+        {
+            <h1>Registro de Alquiler de Vehiculo</h1>
+        }
+        else
+        {
+            <h1>Devolucion de Vehiculo</h1>
+        }
+    </center>
+    <h2>Alquiler Auto</h2>*@
+
+@using (Html.BeginForm("CreateUpdate", "Detalles", FormMethod.Post))
+{
+    <table class="table table-bordered table-responsive table-condensed">
+        <tr>
+            <td><label>Nombre Completo</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Cliente, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Cliente, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Telefono</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Telefono, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>Dui</td>
+            <td>
+                @Html.TextBoxFor(x => x.Dui, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Dui, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>Fecha Inicio</td>
+            <td>
+                <div class="form-group">
+                   
+                    <div class='input-group date' id='birthdate'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"> </span>
+                        </span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Fecha Fin</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Total a Pagar</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <center>
+                    <button class="btn btn-success"><img src="~/img/enviar-correo.png" /> Enviar</button>
+                </center>
+            </td>
+
+        </tr>
+    </table>
+}
+    <script type="text/javascript">
+        $ (documento) .ready ( function () {
+            $ ( "# fecha inicio" ) .datepicker ({
+                autoclose: verdadero ,
+                formato: 'aaaa-mm-dd' ,
+                todayHighlight: cierto ,
+                clearBtn: cierto ,
+                orientación: 'abajo'
+            });
+        });
+    </script>
