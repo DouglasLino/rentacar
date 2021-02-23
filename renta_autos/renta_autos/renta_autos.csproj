@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +225,9 @@
     <Content Include="startbootstrap-shop-homepage-gh-pages\startbootstrap-shop-homepage-gh-pages\vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="startbootstrap-shop-homepage-gh-pages\startbootstrap-shop-homepage-gh-pages\vendor\jquery\jquery.min.map" />
     <Content Include="startbootstrap-shop-homepage-gh-pages\startbootstrap-shop-homepage-gh-pages\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Views\Marca\CreateOrUpdateMarca.cshtml" />
+    <Content Include="Views\Marca\MostrarDatos.cshtml" />
+    <Content Include="Views\Marca\Correcto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
