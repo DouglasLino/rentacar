@@ -1,7 +1,9 @@
 ﻿@model renta_autos.Models.Alquiler
 @using renta_autos.Models;
 @{
-    ViewBag.Title = "CreateUpdate";
+                /**/
+
+                ViewBag.Title = "CreateUpdate";
 }
 <br />
 
@@ -48,7 +50,7 @@
             <td>Fecha Inicio</td>
             <td>
                 <div class="form-group">
-                   
+
                     <div class='input-group date' id='birthdate'>
                         <input type='text' class="form-control" />
                         <span class="input-group-addon">
@@ -79,7 +81,7 @@
         </tr>
     </table>
 }
-    <script type="text/javascript">
+<script type="text/javascript">
         $ (documento) .ready ( function () {
             $ ( "# fecha inicio" ) .datepicker ({
                 autoclose: verdadero ,
@@ -89,4 +91,4 @@
                 orientación: 'abajo'
             });
         });
-    </script>
+</script>

@@ -1,8 +1,8 @@
 ﻿@using renta_autos.Models
 @{
 
-                ViewBag.Title = "MostrarDetalle";
-                List<Alquiler> detalles = ViewBag.datos != null ? ViewBag.datos : new List<Alquiler>();
+    ViewBag.Title = "MostrarDetalle";
+    List<Alquiler> detalles = ViewBag.datos != null ? ViewBag.datos : new List<Alquiler>();
 }
 <br />
 <h2 style="color:darkslategrey; text-align:center;">Detalle de Alquiler</h2>
@@ -34,7 +34,7 @@
                     <td>@alq.Fecha_inicio</td>
                     <td>@alq.Fecha_fin</td>
                     <td>@Math.Round(alq.Total, 2)</td>
-                    <td>@Html.ActionLink("Devolver", "CreateUpdate", "Alquiler",new { Id_alquiler = alq.Id_alquiler}, new { @class= "btn btn-warning"})</td>
+                    <td>@Html.ActionLink("Devolver", "CreateUpdate", "Alquiler", new { Id_alquiler = alq.Id_alquiler }, new { @class = "btn btn-warning" })</td>
                     <td>@Html.ActionLink("PDF", "Imprimir", "Alquiler", new { Id_alquiler = alq.Id_alquiler }, new { @class = "btn btn-danger" })</td>
                 </tr>
             }
