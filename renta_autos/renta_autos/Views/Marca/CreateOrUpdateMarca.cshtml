@@ -8,7 +8,7 @@
 <center>
     @if (Model.Id_marca > 0)
     {
-        <h1>Editar Alumno</h1>
+        <h1>Editar Marca</h1>
     }
     else
     {
@@ -17,10 +17,10 @@
 </center>
 <br />
 
-@using (Html.BeginForm("CreateOrUpdateAlumno", "Marca", FormMethod.Post))
+@using (Html.BeginForm("CreateOrUpdateMarca", "Marca", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.Id_marca)
-    @Html.HiddenFor(x => x.Marca)
+    
     <table>
         <tr>
             <td><label>Nombre :</label></td>

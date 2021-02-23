@@ -10,49 +10,53 @@
 </center>
 <br />
 <br />
-@Html.ActionLink("Descargar PDF", "ImprimirPDF", "Marca", new { @class = "btn btn-default" })
 <br />
 <br />
-<table class="table table-responsive table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Marca</th>
-           
-        </tr>
-    </thead>
-    <tbody>
-        @if (lista.Count() > 0)
-        {
-            foreach (var a in lista)
+<center>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (lista.Count() > 0)
+            {
+                foreach (var a in lista)
+                {
+                    <tr>
+                        <td>@a.Id_marca</td>
+                        <th>@a.Marca</th>
+
+                        <th>
+                            @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
+                        </th>
+                        <td>
+                            <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                                Eliminar
+                            </button>
+                            @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                        </td>
+                    </tr>
+                }
+            }
+            else
             {
                 <tr>
-                    <td>@a.Id_marca</td>
-                    <th>@a.Marca</th>
-                    <td>
-                        @Html.ActionLink("Editar", "CreateOrUpdateAlumno", "Marca", new { id= a.Id_marca }, new { @class = "btn btn-success" })
-                    </td>
-                    <td>
-                        <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
-                            Eliminar
-                        </button>
-                        @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                    <td colspan="10">
+                        <center>
+                            <b>¡No hay resultados para mostrar!</b>
+                        </center>
                     </td>
                 </tr>
             }
-        }
-        else
-        {
-            <tr>
-                <td colspan="10">
-                    <center>
-                        <b>¡No hay resultados para mostrar!</b>
-                    </center>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</center>
 
 <!-- Modal -->
 <div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,7 +104,7 @@
     function EliminarRegistro()
     {
         var id = $("#id_oculto").val();
-        window.location.href = "/Alumno/DeleteAlumno?id_alumno=" + id;
+        window.location.href = "/Marca/DeleteMarca?Id_Marca=" + id;
     }
 </script>
 

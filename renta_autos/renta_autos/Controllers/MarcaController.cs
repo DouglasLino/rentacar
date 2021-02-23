@@ -86,11 +86,11 @@ namespace renta_autos.Controllers
                 return View();
             }
         } 
-         public ActionResult DeleteMarca(int id)
+         public ActionResult DeleteMarca(int id_marca)
         {
             using (var context = new Contexto())
             {
-                var data = context.Marcas.Where(x => x.Id_marca == id).FirstOrDefault();
+                var data = context.Marcas.Where(x => x.Id_marca == id_marca).FirstOrDefault();
 
                 context.Marcas.Remove(data);
                 context.SaveChanges();
@@ -99,22 +99,7 @@ namespace renta_autos.Controllers
             return RedirectToAction("MostrarDatos", new {isDelete=true });
         }
 
-        public ActionResult ImprimirPDF()
-        {
-            using (var context = new Contexto())
-            {
-                var data = context.Marcas.ToList();
-
-                ViewBag.datos = data;
-            }
-
-            return new ViewAsPdf("IndexPdf")
-            {
-                PageSize = Rotativa.Options.Size.A4,
-                PageMargins = new Rotativa.Options.Margins(10,20,10,20),
-                FileName = "Notas.pdf"
-            };
-        }
+       
 
 
 

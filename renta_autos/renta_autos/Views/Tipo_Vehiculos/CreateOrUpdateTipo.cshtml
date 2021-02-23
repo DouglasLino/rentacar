@@ -1,0 +1,42 @@
+﻿@model renta_autos.Models.TipoVehiculos
+@using renta_autos.Models;
+@{
+    ViewBag.Title = "CreateOrUpdateTipo";
+}
+
+<br />
+<center>
+    @if (Model.Id_tipo_vehiculo > 0)
+    {
+        <h1>Editar Tipos Vehiculos</h1>
+    }
+    else
+    {
+        <h1>Agregar Tipos Vehiculos</h1>
+    }
+</center>
+<br />
+
+@using (Html.BeginForm("CreateOrUpdateTipo", "Tipo_Vehiculos", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id_tipo_vehiculo)
+
+    <table>
+        <tr>
+            <td><label>Tipo Vehiculo :</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Tipo_vehiculo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Tipo_vehiculo, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <center>
+                    <input type="submit" class="btn btn-default, btn-block" value="Enviar Datos" />
+                </center>
+            </td>
+        </tr>
+    </table>
+}
+

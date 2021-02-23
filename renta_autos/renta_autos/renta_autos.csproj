@@ -138,6 +138,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
+    <Compile Include="Controllers\ModeloController.cs" />
+    <Compile Include="Controllers\Tipo_VehiculosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,6 +230,12 @@
     <Content Include="Views\Marca\CreateOrUpdateMarca.cshtml" />
     <Content Include="Views\Marca\MostrarDatos.cshtml" />
     <Content Include="Views\Marca\Correcto.cshtml" />
+    <Content Include="Views\Modelo\MostrarDatos.cshtml" />
+    <Content Include="Views\Modelo\CreateOrUpdateModelos.cshtml" />
+    <Content Include="Views\Modelo\Correcto.cshtml" />
+    <Content Include="Views\Tipo_Vehiculos\MostrarDatos.cshtml" />
+    <Content Include="Views\Tipo_Vehiculos\CreateOrUpdateTipo.cshtml" />
+    <Content Include="Views\Tipo_Vehiculos\Correcto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
