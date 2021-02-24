@@ -13,9 +13,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="~/startbootstrap-shop-homepage-gh-pages/startbootstrap-shop-homepage-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
+    @*<link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />*@
 
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/moment.min.js"></script>
@@ -54,7 +54,7 @@
                             <a class="nav-link" href="#">Alquiler</a>
                         </li>*@
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Views/Detalles/CreateUpdate.cshtml">Detalle alquiler</a>
+                        <a>@Html.ActionLink("Detalles", "CreateUpdate", "Detalles", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
                 </ul>
             </div>
