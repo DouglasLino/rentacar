@@ -1,0 +1,81 @@
+﻿@using renta_autos.Models
+@{
+    Layout = null;
+    List<Vehiculos> lista = ViewBag.datos != null ? ViewBag.datos : new List<Vehiculos>();
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado de vehiculos</title>
+    <style>
+        thead {
+            display: table-header-group;
+        }
+
+        tfoot {
+            display: table-row-group;
+        }
+
+        tr {
+            page-break-inside: avoid;
+        }
+    </style>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Placa</th>
+                    <th>Marca</th>
+                    <th>Tipo</th>
+                    <th>Transmision</th>
+                    <th>Año</th>
+                    <th>Estado</th>
+                    <th>Precio hora</th>
+                    <th>Modelo</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @if (lista.Count() > 0)
+                {
+                    foreach (var a in lista)
+                    {
+                        <tr>
+                            <td>@a.Id_vehiculo</td>
+                            <td>@a.Placa</td>
+                            <td>@a.Marca</td>
+                            <td>@a.Tipo_vehiculo</td>
+                            <td>@a.Transmision</td>
+                            <td>@a.Anio</td>
+                            <td>@a.Estado</td>
+                            <td>@a.Precio_hora$</td>
+                            <td>@a.Modelo</td>
+                           
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="10">
+                            <center>
+                                <b>¡No hay resultados para mostrar!</b>
+                            </center>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
