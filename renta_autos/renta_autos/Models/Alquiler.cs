@@ -16,11 +16,14 @@ namespace renta_autos.Models
         public string Cliente { get; set; }
 
         [Required(ErrorMessage = "El telefono del cliente es requerido")]
-        [Range(9, 9, ErrorMessage = "Ingrese número de telefono válido")]
+              
+        [MaxLength(9)]
+        [MinLength(9)]
         public string Telefono { get; set; }
 
-        [Required(ErrorMessage = "El telefono del cliente es requerido")]
-        [Range(10, 10, ErrorMessage = "Ingrese número de DUI válido")]
+        [Required(ErrorMessage = "El DUI es requerido")]
+        [MaxLength(10)]
+        [MinLength(10)]
         public string Dui { get; set; }
 
         [Required(ErrorMessage = "La fecha de inicio es requerida")]

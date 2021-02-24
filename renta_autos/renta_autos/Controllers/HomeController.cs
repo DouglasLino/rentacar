@@ -13,7 +13,7 @@ namespace renta_autos.Controllers
         {
             using (var context = new Contexto())
             {
-                var data = context.Vehiculos.ToList();
+                var data = context.Vehiculos.Where(x => x.Estado == true).ToList();
                 ViewBag.datos = data;
 
                 return View();

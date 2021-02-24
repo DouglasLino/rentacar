@@ -17,8 +17,14 @@ namespace renta_autos.Controllers
         }
 
 
-        public ActionResult CreateUpdate(int Id_alquiler = 0)
+        public ActionResult CreateUpdate(int Id_alquiler = 0, Vehiculos v= null)
         {
+
+            if(v != null)
+            {
+                ViewBag.vehiculo = v;
+            }
+
             if (Id_alquiler > 0)
             {
                 using (var context = new Contexto())
@@ -105,6 +111,18 @@ namespace renta_autos.Controllers
                 PageMargins = new Rotativa.Options.Margins(10, 20, 10, 20),
                 FileName = "Factura.pdf"
             };
+        }
+
+        public ActionResult Alquilar(int Id_vehiculo) {
+
+            using (var context = new Contexto())
+            {
+              
+                var data = context.Vehiculos.Where(x => x.Id_vehiculo == Id_vehiculo).FirstOrDefault();
+                data.Estado = false;
+                return RedirectToAction("CreateUpdate", data);
+
+            }
         }
     }
 

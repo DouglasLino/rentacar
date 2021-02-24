@@ -27,6 +27,9 @@ namespace renta_autos.Models
         [Range(1, 10, ErrorMessage = "Ingrese precio de la hora válido")]
         public double Precio_hora { get; set; }
 
+        [Required(ErrorMessage ="imagen es requerida")]
+        public string Foto { get; set; }
+
         [Required]
         public bool Estado { get; set; }
 

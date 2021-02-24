@@ -4,9 +4,11 @@
 
 
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "CreateUpdate";
+    ViewBag.Title = "CreateUpdate";
+
+    Vehiculos datos = ViewBag.vehiculo != null ? ViewBag.vehiculo : new Vehiculos();
 }
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -29,84 +31,90 @@
 
 @using (Html.BeginForm("CreateUpdate", "Detalles", FormMethod.Post))
 {
+    @Html.HiddenFor( x=> x.Id_vehiculo)
+
+<table class="table  table-responsive table-condensed">
+    <tr>
+        <td><label>Nombre Completo</label></td>
+        <td>
+            @Html.TextBoxFor(x => x.Cliente, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Cliente, null, new { @class = "text-danger" })
+        </td>
+    </tr>
+
+    <tr>
+        <td><label>Telefono</label></td>
+        <td>
+            @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Telefono, null, new { @class = "text-danger" })
+        </td>
+    </tr>
+
+    <tr>
+        <td>Dui</td>
+        <td>
+            @Html.TextBoxFor(x => x.Dui, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Dui, null, new { @class = "text-danger" })
+        </td>
+    </tr>
+
+    <tr>
+        <td>Fecha Inicio</td>
+        <td>
+            @*<input id="dateinicio" width="234" />
+        <script>
+            $('#dateinicio').datetimepicker({
+                uiLibrary: 'bootstrap4',
+                modal: false,
+                footer: true
+            });
+
+        </script>*@
+            @Html.TextBoxFor(x => x.Fecha_inicio, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Fecha_inicio, null, new { @class = "text-danger" })
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>Fecha Fin</td>
+        <td>
+            @*<input id="datefin" width="234" />
+        <script>
+            $('#datefin').datetimepicker({
+                uiLibrary: 'bootstrap4',
+                modal: false,
+                footer: true
 
 
-    <table class="table table-bordered table-responsive table-condensed">
-        <tr>
-            <td><label>Nombre Completo</label></td>
-            <td>
-                @Html.TextBoxFor(x => x.Cliente, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.Cliente, null, new { @class = "text-danger" })
-            </td>
-        </tr>
+            });
 
-        <tr>
-            <td><label>Telefono</label></td>
-            <td>
-                @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.Telefono, null, new { @class = "text-danger" })
-            </td>
-        </tr>
+        </script>*@
+            @Html.TextBoxFor(x => x.Fecha_fin, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Fecha_fin, null, new { @class = "text-danger" })
+        </td>
+    </tr>
 
-        <tr>
-            <td>Dui</td>
-            <td>
-                @Html.TextBoxFor(x => x.Dui, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.Dui, null, new { @class = "text-danger" })
-            </td>
-        </tr>
+    <tr>
+        <td>Total a Pagar</td>
+        <td>
 
-        <tr>
-            <td>Fecha Inicio</td>
-            <td>
-                <input id="dateinicio" width="234" />
-                <script>
-                    $('#dateinicio').datetimepicker({
-                        uiLibrary: 'bootstrap4',
-                        modal: false,
-                        footer: true
-                    });
-                    
-                </script>
+            @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Total, null, new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr><td><input type="hidden" value="@datos.Id_vehiculo" /></td><tr>
+    
 
-            </td>
-        </tr>
+    <tr>
+        <td colspan="2">
+            <center>
+                <button class="btn btn-success"><img src="~/img/enviar-correo.png" /> Enviar</button>
+            </center>
+        </td>
 
-        <tr>
-            <td>Fecha Fin</td>
-            <td>
-                <input id="datefin" width="234" />
-                <script>
-                    $('#datefin').datetimepicker({
-                        uiLibrary: 'bootstrap4',
-                        modal: false,
-                        footer: true
-
-                 
-                    });
-                    
-                </script>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Total a Pagar</td>
-            <td>
-
-                @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
-                @Html.ValidationMessageFor(x => x.Total, null, new { @class = "text-danger" })
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">
-                <center>
-                    <button class="btn btn-success"><img src="~/img/enviar-correo.png" /> Enviar</button>
-                </center>
-            </td>
-
-        </tr>
-    </table>
+    </tr>
+</table>
     <script type="text/javascript">
         $(function () {
             $('#dateinicio').datetimepicker();
