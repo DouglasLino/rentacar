@@ -138,9 +138,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DetallesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MantenimientosController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\ModeloController.cs" />
     <Compile Include="Controllers\Tipo_VehiculosController.cs" />
+    <Compile Include="Controllers\VehiculosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -241,6 +243,11 @@
     <Content Include="Views\Detalles\Enviados.cshtml" />
     <Content Include="Views\Detalles\MostrarDetalle.cshtml" />
     <Content Include="Views\Detalles\PDF.cshtml" />
+    <Content Include="Views\Mantenimientos\Index.cshtml" />
+    <Content Include="Views\Vehiculos\MostrarDatos.cshtml" />
+    <Content Include="Views\Vehiculos\CreateOrUpdateVehiculo.cshtml" />
+    <Content Include="Views\Vehiculos\Correcto.cshtml" />
+    <Content Include="Views\Vehiculos\IndexPdf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

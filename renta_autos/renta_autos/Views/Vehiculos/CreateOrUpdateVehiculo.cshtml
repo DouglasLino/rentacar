@@ -1,0 +1,149 @@
+﻿@model renta_autos.Models.Vehiculos
+@using renta_autos.Models
+
+@{
+    ViewBag.Title = "CreateOrUpdateVehiculo";
+
+    using (var context = new Contexto())
+    {
+        var listaMarcas = context.Marcas.Select(
+            x => new
+            {
+                Id = x.Id_marca,
+                Text = x.Marca
+            }
+            ).OrderBy(x => x.Text).ToList();
+
+        ViewBag.listaMarcas = listaMarcas;
+
+        var listaTipoVehiculo = context.TipoVehiculos.Select(
+            x => new
+            {
+                Id = x.Id_tipo_vehiculo,
+                Text = x.Tipo_vehiculo
+            }
+            ).OrderBy(x => x.Text).ToList();
+
+        ViewBag.listaTipoVehiculo = listaTipoVehiculo;
+
+        var listaModeloVehiculo = context.Modelos.Select(
+            x => new
+            {
+                Id = x.Id_modelo,
+                Text = x.Modelo
+            }
+            ).OrderBy(x => x.Text).ToList();
+
+        ViewBag.listaModeloVehiculo = listaModeloVehiculo;
+
+
+        var listaTransmisionesVehiculo = new List<string>()
+            {
+                "Automatica",
+                "Manual"
+            };
+
+        ViewBag.listaTransmisionesVehiculo = listaTransmisionesVehiculo;
+    }
+}
+
+<br />
+<center>
+    @if (Model.Id_vehiculo > 0)
+    {
+        <h1>Editar vehiculo</h1>
+    }
+    else
+    {
+        <h1>Agregando vehiculo</h1>
+    }
+</center>
+<br />
+
+
+@using (Html.BeginForm("CreateOrUpdateVehiculo", "Vehiculos", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id_vehiculo)
+    
+
+    
+        <div class="container ">
+            <div class="row">
+                <div class="col-sm">
+                </div>
+
+                <div class="col-xl">
+                    <table>
+                        <tr>
+                            <td><label>Numero de placas:</label></td>
+                            <td>
+                                @Html.TextBoxFor(x => x.Placa, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Placa, null, new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Marca:</label></td>
+                            <td>
+                                @Html.DropDownListFor(x => x.Id_marca, new SelectList(ViewBag.listaMarcas, "Id", "Text"), new { @class = "form-control" })
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Tipo:</label></td>
+                            <td>
+                                @Html.DropDownListFor(x => x.Id_tipo_vehiculo, new SelectList(ViewBag.listaTipoVehiculo, "Id", "Text"), new { @class = "form-control" })
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Transmision:</label></td>
+                            <td>
+                                @Html.DropDownListFor(x => x.Transmision, new SelectList(ViewBag.listaTransmisionesVehiculo), new { @class = "form-control" })
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Año:</label></td>
+                            <td>
+                                @Html.TextBoxFor(x => x.Anio, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Anio, null, new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Estado:</label></td>
+                            <td>
+                                @Html.TextBoxFor(x => x.Estado, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Estado, null, new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Precio hora:</label></td>
+                            <td>
+                                @Html.TextBoxFor(x => x.Precio_hora, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Precio_hora, null, new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Modelo:</label></td>
+                            <td>
+                                @Html.DropDownListFor(x => x.Id_modelo, new SelectList(ViewBag.listaModeloVehiculo, "Id", "Text"), new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="2">
+                                <center class="p-2">
+                                    <input type="submit" class="btn btn-secondary " value="Enviar Datos" />
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-sm">
+                </div>
+            </div>
+            
+        </div>
+    
+ }
+

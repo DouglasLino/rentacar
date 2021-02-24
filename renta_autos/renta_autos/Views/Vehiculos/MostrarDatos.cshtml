@@ -1,0 +1,127 @@
+﻿@using renta_autos.Models
+@{
+    ViewBag.Title = "MostrarDatos";
+    List<Vehiculos> lista = ViewBag.datos != null ? ViewBag.datos : new List<Vehiculos>();
+}
+
+
+
+<center>
+    <h2 class="text-center p-5">Listado de Vehiculos</h2>
+    <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar vehiculo", "CreateOrUpdateVehiculo", "Vehiculos")</button>
+
+</center>
+
+
+<div>
+    <div class="container">
+        <div class="p-3">
+            @Html.ActionLink("Descargar PDF", "ImprimirPDF", "Vehiculos", new { @class = "btn btn-warning" })
+        </div>
+       
+        <div class="">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Placa</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Transmision</th>
+                        <th>Año</th>
+                        <th>Estado</th>
+                        <th>Precio hora</th>
+                        <th>Modelo</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (lista.Count() > 0)
+                    {
+                        foreach (var a in lista)
+                        {
+                            <tr>
+                                <td>@a.Id_vehiculo</td>
+                                <td>@a.Placa</td>
+                                <td>@a.Marca</td>
+                                <td>@a.Tipo_vehiculo</td>
+                                <td>@a.Transmision</td>
+                                <td>@a.Anio</td>
+                                <td>@a.Estado</td>
+                                <td>@a.Precio_hora$</td>
+                                <td>@a.Modelo</td>
+                                <td>
+                                    @Html.ActionLink("Editar", "CreateOrUpdateVehiculo", "Vehiculos", new { Id_vehiculo = a.Id_vehiculo }, new { @class = "btn btn-success" })
+                                </td>
+                                <td>
+                                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+
+                                    <button type="button" onclick="ObtenerId(@a.Id_vehiculo)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModal">
+                                        Eliminar
+                                    </button>
+
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10">
+                                <center>
+                                    <b>¡No hay resultados para mostrar!</b>
+                                </center>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*modal*@
+<div class="modal fade" id="EliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <center>
+                    ¿Desea eliminiar el registro?
+                    <input type="hidden" id="id_oculto" />
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="EliminarRegistro()" class="btn btn-danger" data-dismiss="modal">si</button>
+                <button type="button" class="btn btn-secondary">no</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (ViewBag.Delete == true)
+{
+    <script>
+        alert("Registro eliminado correctamente");
+
+    </script>
+}
+
+<script>
+    function ObtenerId(valor) {
+        console.log(valor);
+        $("#id_oculto").val(valor)
+    }
+
+    function EliminarRegistro() {
+        var id = $("#id_oculto").val();
+
+        window.location.href = "/Vehiculos/DeleteVehiculo?Id_vehiculo=" + id;
+    }
+</script>
