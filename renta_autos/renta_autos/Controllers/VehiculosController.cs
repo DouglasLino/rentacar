@@ -3,6 +3,7 @@ using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,9 +17,9 @@ namespace renta_autos.Controllers
             return View();
         }
 
-        public ActionResult MostrarDatos(bool isDelete = false)
+        public ActionResult MostrarDatos()
         {
-            ViewBag.Delete = isDelete;
+           
             using (var context = new Contextoss())
             {
                 var data = context.Vehiculos.ToList();
@@ -62,6 +63,9 @@ namespace renta_autos.Controllers
                     {
                         context.Vehiculos.Add(model);
                         context.SaveChanges();
+                        ViewBag.IsNew = IsNew;
+                        Thread.Sleep(2000);
+                        return RedirectToAction("CreateOrUpdateVehiculo");
                     }
                 }
                 else
@@ -80,12 +84,12 @@ namespace renta_autos.Controllers
                         data.Id_tipo_vehiculo = model.Id_tipo_vehiculo;
 
                         context.SaveChanges();
+                        ViewBag.IsNew = IsNew;
+                        Thread.Sleep(2000);
+                        return RedirectToAction("MostrarDatos");
                     }
                 }
-
-                ViewBag.IsNew = IsNew;
-
-                return View("Correcto");
+              
             }
             else
             {
@@ -103,8 +107,8 @@ namespace renta_autos.Controllers
                 context.Vehiculos.Remove(data);
                 context.SaveChanges();
             }
-
-            return RedirectToAction("MostrarDatos", new { isDelete = true });
+            Thread.Sleep(1000);
+            return RedirectToAction("MostrarDatos");
         }
 
         public ActionResult ImprimirPDF()

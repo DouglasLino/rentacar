@@ -105,13 +105,7 @@
     </div>
 </div>
 
-@if (ViewBag.Delete == true)
-{
-    <script>
-        alert("Registro eliminado correctamente");
 
-    </script>
-}
 
 <script>
     function ObtenerId(valor) {
@@ -121,7 +115,13 @@
 
     function EliminarRegistro() {
         var id = $("#id_oculto").val();
-
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Dato eliminado',
+            showConfirmButton: false,
+            timer: 1500
+        })
         window.location.href = "/Vehiculos/DeleteVehiculo?Id_vehiculo=" + id;
     }
 </script>
