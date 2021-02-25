@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -47,6 +48,9 @@ namespace renta_autos.Controllers
                     {
                         context.Modelos.Add(model);
                         context.SaveChanges();
+                        ViewBag.IsNew = IsNew;
+                        Thread.Sleep(2000);
+                        return RedirectToAction("CreateOrUpdateModelo");
                     }
                 }
                 else
@@ -57,12 +61,15 @@ namespace renta_autos.Controllers
 
                         data.Modelo = model.Modelo;
                         context.SaveChanges();
+                        ViewBag.IsNew = IsNew;
+                        Thread.Sleep(2000);
+                        return RedirectToAction("MostrarDatos");
                     }
                 }
 
-                ViewBag.IsNew = IsNew;
+                
 
-                return View("Correcto");
+               
             }
             else
             {
@@ -73,9 +80,9 @@ namespace renta_autos.Controllers
 
         }
 
-        public ActionResult MostrarDatos(bool isDelete = false)
+        public ActionResult MostrarDatos()
         {
-            ViewBag.Delete = isDelete;
+            
             using (var context = new Contextoss())
             {
                 var data = context.Modelos.ToList();
@@ -94,7 +101,7 @@ namespace renta_autos.Controllers
                 context.SaveChanges();
             }
 
-            return RedirectToAction("MostrarDatos", new { isDelete = true });
+            return RedirectToAction("MostrarDatos");
         }
 
 

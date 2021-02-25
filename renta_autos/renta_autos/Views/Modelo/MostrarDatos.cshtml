@@ -7,6 +7,7 @@
 <br />
 <center>
     <h2>Listado de Modelos</h2>
+    <li class="btn btn-outline-primary"> @Html.ActionLink("Agregar", "CreateOrUpdateModelos", "Modelo")</li>
 </center>
 <br />
 <br />
@@ -141,16 +142,6 @@
     </div>
 </div>
 
-
-
-@if ((bool)ViewBag.Delete == true)
-{
-    <script>
-        alert("Registro Eliminado Correctamente")
-    </script>
-}
-
-
 <script>
     function ObtenerId(valor) {
 
@@ -158,6 +149,13 @@
     }
     function EliminarRegistro() {
         var id = $("#id_oculto").val();
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Dato eliminado',
+            showConfirmButton: false,
+            timer: 1500
+        })
         window.location.href = "/Modelo/DeleteModelo?Id_Modelo=" + id;
     }
 </script>
