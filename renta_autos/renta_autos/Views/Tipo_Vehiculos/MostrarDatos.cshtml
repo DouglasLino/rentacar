@@ -12,23 +12,74 @@
 <br />
 <br />
 <br />
-<center>
-    <table class="table table-responsive table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Tipo</th>
-                <th></th>
-                <th></th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @if (lista.Count() > 0)
-            {
-                foreach (var a in lista)
-                {
+   
+            <table class="table table-borderless table-responsive">
+                <thead>
                     <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Id</th>
+                        <th>Tipo</th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (lista.Count() > 0)
+                    {
+                        foreach (var a in lista)
+                        {
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                         <td>@a.Id_tipo_vehiculo</td>
                         <th>@a.Tipo_vehiculo</th>
 
@@ -42,74 +93,75 @@
                             @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
                         </td>
                     </tr>
-                }
-            }
-            else
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10">
+                                <center>
+                                    <b>¡No hay resultados para mostrar!</b>
+                                </center>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <center>
+                <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar", "CreateOrUpdateTipo", "Tipo_Vehiculos")</button>
+            </center>
+            
+          
+     
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <center>
+                                ¿DESEA ELIMINAR EL REGISTRO?
+                                <input type="hidden" id="id_oculto" />
+                            </center>
+                        </div>
+                        <div class="modal-footer">
+                            <CENTER>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <button type="button" onclick="EliminarRegistro()" class="btn btn-danger">Si</button>
+                            </CENTER>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            @if ((bool)ViewBag.Delete == true)
             {
-                <tr>
-                    <td colspan="10">
-                        <center>
-                            <b>¡No hay resultados para mostrar!</b>
-                        </center>
-                    </td>
-                </tr>
+                <script>
+                    alert("Registro Eliminado Correctamente")
+                </script>
             }
-        </tbody>
-    </table>
-    <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar", "CreateOrUpdateTipo", "Tipo_Vehiculos")</button>
-</center>
 
 
+            <script>
+                function ObtenerId(valor) {
 
-<!-- Modal -->
-<div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <center>
-                    ¿DESEA ELIMINAR EL REGISTRO?
-                    <input type="hidden" id="id_oculto" />
-                </center>
-            </div>
-            <div class="modal-footer">
-                <CENTER>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" onclick="EliminarRegistro()" class="btn btn-danger">Si</button>
-                </CENTER>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-@if ((bool)ViewBag.Delete == true)
-{
-    <script>
-            alert("Registro Eliminado Correctamente")
-    </script>
-}
-
-
-<script>
-    function ObtenerId(valor)
-    {
-
-        $("#id_oculto").val(valor);
-    }
-    function EliminarRegistro()
-    {
-        var id = $("#id_oculto").val();
-        window.location.href = "/Tipo_Vehiculos/DeleteTipo?Id_tipo_vehiculo=" + id;
-    }
-</script>
+                    $("#id_oculto").val(valor);
+                }
+                function EliminarRegistro() {
+                    var id = $("#id_oculto").val();
+                    window.location.href = "/Tipo_Vehiculos/DeleteTipo?Id_tipo_vehiculo=" + id;
+                }
+            </script>
 
 
 

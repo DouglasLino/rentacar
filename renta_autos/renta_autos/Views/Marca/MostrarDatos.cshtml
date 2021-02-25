@@ -12,10 +12,35 @@
 <br />
 <br />
 <br />
-<center>
-    <table class="table table-responsive table-striped">
+
+    <table class="table table-borderless table-responsive">
         <thead>
             <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th>Id</th>
                 <th>Marca</th>
                 <th></th>
@@ -28,20 +53,45 @@
             {
                 foreach (var a in lista)
                 {
-                    <tr>
-                        <td>@a.Id_marca</td>
-                        <th>@a.Marca</th>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <td>@a.Id_marca</td>
+                <th>@a.Marca</th>
 
-                        <th>
-                            @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
-                        </th>
-                        <td>
-                            <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
-                                Eliminar
-                            </button>
-                            @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
-                        </td>
-                    </tr>
+                <th>
+                    @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
+                </th>
+                <td>
+                    <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                        Eliminar
+                    </button>
+                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                </td>
+            </tr>
                 }
             }
             else
@@ -56,8 +106,11 @@
             }
         </tbody>
     </table>
+<center>
     <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar", "CreateOrUpdateMarca", "Marca")</button>
 </center>
+    
+
 
 <!-- Modal -->
 <div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -12,10 +12,35 @@
 <br />
 <br />
 <br />
-<center>
-    <table class="table table-responsive table-striped">
+
+    <table class="table table-borderless table-responsive">
         <thead>
             <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th>Id</th>
                 <th>Modelos</th>
                 <th></th>
@@ -28,20 +53,45 @@
             {
                 foreach (var a in lista)
                 {
-                    <tr>
-                        <td>@a.Id_modelo</td>
-                        <th>@a.Modelo</th>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <td>@a.Id_modelo</td>
+                <th>@a.Modelo</th>
 
-                        <th>
-                            @Html.ActionLink("Editar", "CreateOrUpdateModelos", "Modelo", new { id = a.Id_modelo }, new { @class = "btn btn-success" })
-                        </th>
-                        <td>
-                            <button type="button" onclick="ObtenerId(@a.Id_modelo)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
-                                Eliminar
-                            </button>
-                            @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
-                        </td>
-                    </tr>
+                <th>
+                    @Html.ActionLink("Editar", "CreateOrUpdateModelos", "Modelo", new { id = a.Id_modelo }, new { @class = "btn btn-success" })
+                </th>
+                <td>
+                    <button type="button" onclick="ObtenerId(@a.Id_modelo)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                        Eliminar
+                    </button>
+                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                </td>
+            </tr>
                 }
             }
             else
@@ -55,9 +105,14 @@
                 </tr>
             }
         </tbody>
+
     </table>
-    <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar", "CreateOrUpdateModelos", "Modelo")</button>
-</center>
+
+
+    <center>
+        <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar", "CreateOrUpdateModelos", "Modelo")</button>
+    </center>
+
 
 <!-- Modal -->
 <div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
