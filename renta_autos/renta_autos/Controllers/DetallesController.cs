@@ -27,7 +27,7 @@ namespace renta_autos.Controllers
 
             if (Id_alquiler > 0)
             {
-                using (var context = new Contexto())
+                using (var context = new Contextoss())
                 {
                     var data = context.Alquileres.Where(x => x.Id_alquiler == Id_alquiler).FirstOrDefault();
                     return View(data);
@@ -53,7 +53,7 @@ namespace renta_autos.Controllers
 
                 if (Nuevo)
                 {
-                    using (var context = new Contexto())
+                    using (var context = new Contextoss())
                     {
                         context.Alquileres.Add(alquiler);
                         context.SaveChanges();
@@ -61,7 +61,7 @@ namespace renta_autos.Controllers
                 }
                 else
                 {
-                    using (var context = new Contexto())
+                    using (var context = new Contextoss())
                     {
                         var data = context.Alquileres.Where(x => x.Id_alquiler == alquiler.Id_alquiler).FirstOrDefault();
                         data.Cliente = alquiler.Cliente;
@@ -88,7 +88,7 @@ namespace renta_autos.Controllers
 
         public ActionResult MostrarDetalle()
         {
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Alquileres.ToList();
                 ViewBag.datos = data;
@@ -99,7 +99,7 @@ namespace renta_autos.Controllers
 
         public ActionResult Imprimir()
         {
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Alquileres.ToList();
                 ViewBag.datos = data;
@@ -115,7 +115,7 @@ namespace renta_autos.Controllers
 
         public ActionResult Alquilar(int Id_vehiculo) {
 
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
               
                 var data = context.Vehiculos.Where(x => x.Id_vehiculo == Id_vehiculo).FirstOrDefault();

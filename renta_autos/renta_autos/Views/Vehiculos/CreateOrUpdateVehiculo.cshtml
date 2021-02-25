@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "CreateOrUpdateVehiculo";
 
-    using (var context = new Contexto())
+    using (var context = new Contextoss())
     {
         var listaMarcas = context.Marcas.Select(
             x => new
@@ -110,10 +110,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label>Estado:</label></td>
+                            @*<td><label>Estado:</label></td>*@
                             <td>
-                                @Html.TextBoxFor(x => x.Estado, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(x => x.Estado, null, new { @class = "text-danger" })
+                                @Html.TextBoxFor(x => x.Estado,   new { @class = "form-control", @Value = "True", @type = "hidden" })
                             </td>
                         </tr>
                         <tr>
@@ -127,6 +126,13 @@
                             <td><label>Modelo:</label></td>
                             <td>
                                 @Html.DropDownListFor(x => x.Id_modelo, new SelectList(ViewBag.listaModeloVehiculo, "Id", "Text"), new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Foto:</label></td>
+                            <td>
+                                @Html.TextBoxFor(x => x.Foto, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Foto, null, new { @class = "text-danger" })
                             </td>
                         </tr>
                         <tr >

@@ -48,7 +48,7 @@ namespace renta_autos.Models
         {
             get
             {
-                using (var context = new Contexto())
+                using (var context = new Contextoss())
                 {
                     var Marca = context.Marcas.Where(x => x.Id_marca == Id_marca).Select(x => x.Marca).FirstOrDefault();
                     return Marca;
@@ -60,7 +60,7 @@ namespace renta_autos.Models
         {
             get
             {
-                using (var context = new Contexto())
+                using (var context = new Contextoss())
                 {
                     var Modelo = context.Modelos.Where(x => x.Id_modelo == Id_modelo).Select(x => x.Modelo).FirstOrDefault();
                     return Modelo;
@@ -72,7 +72,7 @@ namespace renta_autos.Models
         {
             get
             {
-                using (var context = new Contexto())
+                using (var context = new Contextoss())
                 {
                     var Tipo_vehiculo = context.TipoVehiculos.Where(x => x.Id_tipo_vehiculo == Id_tipo_vehiculo).Select(x => x.Tipo_vehiculo).FirstOrDefault();
                     return Tipo_vehiculo;

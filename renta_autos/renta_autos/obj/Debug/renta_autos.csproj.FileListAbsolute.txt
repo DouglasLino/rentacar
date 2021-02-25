@@ -737,3 +737,6 @@ C:\Users\christopher.olmedo\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\r
 C:\Users\christopher.olmedo\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.Migrations.InitialCreate.resources
 C:\Users\christopher.olmedo\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.csproj.GenerateResource.cache
 C:\Users\christopher.olmedo\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.Migrations.Cambios1.resources
+C:\Users\douglaslino\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.Migrations.InitialCreate.resources
+C:\Users\douglaslino\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.Migrations.Cambios1.resources
+C:\Users\douglaslino\Desktop\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.csproj.GenerateResource.cache

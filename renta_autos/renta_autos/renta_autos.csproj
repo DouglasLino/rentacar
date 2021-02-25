@@ -156,7 +156,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alquiler.cs" />
-    <Compile Include="Models\Contexto.cs" />
+    <Compile Include="Models\Contextoss.cs" />
     <Compile Include="Models\Marcas.cs" />
     <Compile Include="Models\Modelos.cs" />
     <Compile Include="Models\TipoVehiculos.cs" />

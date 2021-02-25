@@ -18,7 +18,7 @@ namespace renta_autos.Controllers
         {
             if (Id > 0)
             {
-                using (var context = new Contexto())
+                using (var context = new Contextoss())
                 {
                     var data = context.Modelos.Where(x => x.Id_modelo == Id).FirstOrDefault();
                     return View(data);
@@ -43,7 +43,7 @@ namespace renta_autos.Controllers
 
                 if (IsNew)
                 {
-                    using (var context = new Contexto())
+                    using (var context = new Contextoss())
                     {
                         context.Modelos.Add(model);
                         context.SaveChanges();
@@ -51,7 +51,7 @@ namespace renta_autos.Controllers
                 }
                 else
                 {
-                    using (var context = new Contexto())
+                    using (var context = new Contextoss())
                     {
                         var data = context.Modelos.Where(x => x.Id_modelo == model.Id_modelo).FirstOrDefault();
 
@@ -76,7 +76,7 @@ namespace renta_autos.Controllers
         public ActionResult MostrarDatos(bool isDelete = false)
         {
             ViewBag.Delete = isDelete;
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Modelos.ToList();
                 ViewBag.datos = data;
@@ -86,7 +86,7 @@ namespace renta_autos.Controllers
         }
         public ActionResult DeleteModelo(int Id_modelo)
         {
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Modelos.Where(x => x.Id_modelo == Id_modelo).FirstOrDefault();
 

@@ -11,7 +11,7 @@ namespace renta_autos.Controllers
     {
         public ActionResult Index()
         {
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Vehiculos.Where(x => x.Estado == true).ToList();
                 ViewBag.datos = data;

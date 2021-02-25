@@ -19,7 +19,7 @@ namespace renta_autos.Controllers
         public ActionResult MostrarDatos(bool isDelete = false)
         {
             ViewBag.Delete = isDelete;
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Vehiculos.ToList();
                 ViewBag.datos = data;
@@ -32,7 +32,7 @@ namespace renta_autos.Controllers
         {
             if (Id_vehiculo > 0)
             {
-                using (var context = new Contexto())
+                using (var context = new Contextoss())
                 {
                     var data = context.Vehiculos.Where(x => x.Id_vehiculo == Id_vehiculo).FirstOrDefault();
                     return View(data);
@@ -58,7 +58,7 @@ namespace renta_autos.Controllers
 
                 if (IsNew)
                 {
-                    using (var context = new Contexto())
+                    using (var context = new Contextoss())
                     {
                         context.Vehiculos.Add(model);
                         context.SaveChanges();
@@ -66,7 +66,7 @@ namespace renta_autos.Controllers
                 }
                 else
                 {
-                    using (var context = new Contexto())
+                    using (var context = new Contextoss())
                     {
                         var data = context.Vehiculos.Where(x => x.Id_vehiculo == model.Id_vehiculo).FirstOrDefault();
 
@@ -96,7 +96,7 @@ namespace renta_autos.Controllers
 
         public ActionResult DeleteVehiculo(int Id_vehiculo)
         {
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Vehiculos.Where(x => x.Id_vehiculo == Id_vehiculo).FirstOrDefault();
 
@@ -109,7 +109,7 @@ namespace renta_autos.Controllers
 
         public ActionResult ImprimirPDF()
         {
-            using (var context = new Contexto())
+            using (var context = new Contextoss())
             {
                 var data = context.Vehiculos.ToList();
 
