@@ -100,7 +100,7 @@ namespace renta_autos.Controllers
                 context.Modelos.Remove(data);
                 context.SaveChanges();
             }
-
+            Thread.Sleep(1000);
             return RedirectToAction("MostrarDatos");
         }
 

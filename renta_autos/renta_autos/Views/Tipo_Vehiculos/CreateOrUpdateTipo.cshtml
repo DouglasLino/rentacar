@@ -33,10 +33,33 @@
         <tr>
             <td colspan="2">
                 <center>
-                    <input type="submit" class="btn btn-success" value="Enviar Datos" />
+                    <input type="submit" class="btn btn-success" onclick="setTimeout('CreateUpdate(@Model.Id_tipo_vehiculo)',1000);" value="Enviar Datos" />
                 </center>
             </td>
         </tr>
     </table>
 }
+<script>
+    function CreateUpdate(id) {
+        if (id > 0) {
+            Swal.fire({
+                position: 'center',
+                icon: 'info',
+                title: '¡Editado!',
+                showConfirmButton: true,
+                timer: 2000
+            })
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Dato Registrado',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+
+    }
+
+</script>
 
