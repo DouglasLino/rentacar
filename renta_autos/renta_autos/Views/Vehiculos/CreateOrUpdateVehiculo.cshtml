@@ -131,7 +131,10 @@
                     <tr>
                         <td><label>Foto:</label></td>
                         <td>
-                            @Html.TextBoxFor(x => x.Foto, new { @class = "form-control" })
+                            @*<input type="file" value="foto(@Html.TextBoxFor(x =>  x.Foto ))"  >*@
+                            @Html.TextBoxFor(x => x.Foto, new { @class = "form-control", @Value = "/fotos/bus/busBMW.jpg" })
+
+                            @*@Html.TextBoxFor(x => x.Foto, new { @class = "form-control" })*@
                             @Html.ValidationMessageFor(x => x.Foto, null, new { @class = "text-danger" })
                         </td>
                     </tr>
@@ -172,6 +175,12 @@
             })
         }
 
+    }
+
+    function foto(valor) {
+        var ruta = "/fotos/bus/" + valor
+        Console.log(ruta)
+        return ruta
     }
 
 </script>
