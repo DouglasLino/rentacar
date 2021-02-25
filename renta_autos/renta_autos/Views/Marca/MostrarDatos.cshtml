@@ -7,58 +7,63 @@
 <br />
 <center>
     <h2>Listado de Marcas</h2>
-    <li class="btn btn-outline-primary"> @Html.ActionLink("Agregar", "CreateOrUpdateMarca", "Marca")</li>
+    <a class="btn btn-outline-primary"@Html.ActionLink("Agregar", "CreateOrUpdateMarca", "Marca")</a>
 </center>
 <br />
 <br />
 
 <br />
 <br />
-<center>
-    <table class="col-5 table table-responsive table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Marca</th>
-                <th></th>
-                <th></th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @if (lista.Count() > 0)
-            {
-                foreach (var a in lista)
-                {
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>@a.Id_marca</td>
-                        <th>@a.Marca</th>
+                        <th>Id</th>
+                        <th>Marca</th>
+                        <th></th>
+                        <th></th>
 
-                        <th>
-                            @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
-                        </th>
-                        <td>
-                            <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
-                                Eliminar
-                            </button>
-                            @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
-                        </td>
                     </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="10">
-                        <center>
-                            <b>¡No hay resultados para mostrar!</b>
-                        </center>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</center>
+                </thead>
+                <tbody>
+                    @if (lista.Count() > 0)
+                    {
+                        foreach (var a in lista)
+                        {
+                            <tr>
+                                <td>@a.Id_marca</td>
+                                <td>@a.Marca</td>
+
+                                <td>
+                                    @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
+                                </td>
+                                <td>
+                                    <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                                        Eliminar
+                                    </button>
+                                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10">
+                                <center>
+                                    <b>¡No hay resultados para mostrar!</b>
+                                </center>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
