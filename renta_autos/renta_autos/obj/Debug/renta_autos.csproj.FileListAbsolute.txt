@@ -835,3 +835,6 @@ C:\Users\Barrios\Desktop\DouglasLino\rentacar\renta_autos\renta_autos\obj\Debug\
 C:\Users\Barrios\Desktop\DouglasLino\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.csproj.CopyComplete
 C:\Users\Barrios\Desktop\DouglasLino\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.dll
 C:\Users\Barrios\Desktop\DouglasLino\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.pdb
+C:\Users\chris\OneDrive\Escritorio\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.Migrations.InitialCreate.resources
+C:\Users\chris\OneDrive\Escritorio\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.Migrations.Cambios1.resources
+C:\Users\chris\OneDrive\Escritorio\rentacar\renta_autos\renta_autos\obj\Debug\renta_autos.csproj.GenerateResource.cache

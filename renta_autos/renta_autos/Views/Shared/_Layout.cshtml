@@ -13,21 +13,18 @@
 
     <!-- Bootstrap core CSS -->
     <link href="~/startbootstrap-shop-homepage-gh-pages/startbootstrap-shop-homepage-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    @*<link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />*@
 
-    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/scripts/moment.min.js"></script>
-    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.*js"></script>
-    <!-- include your less or built css files  -->
-
-
-    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
 
     <!-- Custom styles for this template -->
     <link href="~/startbootstrap-shop-homepage-gh-pages/startbootstrap-shop-homepage-gh-pages/css/shop-homepage.css" rel="stylesheet">
+    <style>
+
+        .dropdown-item:hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
 </head>
 
@@ -36,25 +33,36 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a >
-                <a>@Html.ActionLink("Rentacar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
-            </a>
+            <a class="navbar-brand" @Html.ActionLink("Rentacar", "Index", "Home")></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" @Html.ActionLink("Inicio", "Index", "Home")
+
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a>@Html.ActionLink("Mantenimientos", "Index", "Mantenimientos", new { area = "" }, new { @class = "nav-link" })</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mantenimiento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" @Html.ActionLink("Marcas", "MostrarDatos", "Marca")</a>
+                            <a class="dropdown-item " @Html.ActionLink("Modelos", "MostrarDatos", "Modelo")</a>
+                            <a class="dropdown-item" @Html.ActionLink("Tipo de vehículos", "MostrarDatos", "Tipo_Vehiculos")</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Vehículos</a>
+                        </div>
+
                     </li>
                     @*<li class="nav-item">
                             <a class="nav-link" href="#">Alquiler</a>
                         </li>*@
                     <li class="nav-item">
-                        <a>@Html.ActionLink("Detalles", "CreateUpdate", "Detalles", new { area = "" }, new { @class = "nav-link" })</a>
+                        <a class="nav-link" @Html.ActionLink("Detalle de alquiler", "MostrarDetalle", "Detalles")</a>
                     </li>
                 </ul>
             </div>
@@ -74,9 +82,9 @@
     <!-- Bootstrap core JavaScript -->
     <script src="~/startbootstrap-shop-homepage-gh-pages/startbootstrap-shop-homepage-gh-pages/vendor/jquery/jquery.min.js"></script>
     <script src="~/startbootstrap-shop-homepage-gh-pages/startbootstrap-shop-homepage-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+
 
 </body>
 
