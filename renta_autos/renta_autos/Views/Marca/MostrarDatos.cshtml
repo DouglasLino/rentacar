@@ -7,40 +7,17 @@
 <br />
 <center>
     <h2>Listado de Marcas</h2>
+    <li class="btn btn-outline-primary"> @Html.ActionLink("Agregar", "CreateOrUpdateMarca", "Marca")</li>
 </center>
 <br />
 <br />
-<br />
-<br />
 
-    <table class="table table-borderless table-responsive">
+<br />
+<br />
+<center>
+    <table class="col-5 table table-responsive table-striped">
         <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
                 <th>Id</th>
                 <th>Marca</th>
                 <th></th>
@@ -53,45 +30,20 @@
             {
                 foreach (var a in lista)
                 {
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <td>@a.Id_marca</td>
-                <th>@a.Marca</th>
+                    <tr>
+                        <td>@a.Id_marca</td>
+                        <th>@a.Marca</th>
 
-                <th>
-                    @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
-                </th>
-                <td>
-                    <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
-                        Eliminar
-                    </button>
-                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
-                </td>
-            </tr>
+                        <th>
+                            @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
+                        </th>
+                        <td>
+                            <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                                Eliminar
+                            </button>
+                            @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                        </td>
+                    </tr>
                 }
             }
             else
@@ -106,11 +58,7 @@
             }
         </tbody>
     </table>
-<center>
-    <button type="button" class="btn  btn-lg">@Html.ActionLink("Agregar", "CreateOrUpdateMarca", "Marca")</button>
 </center>
-    
-
 
 <!-- Modal -->
 <div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -141,23 +89,21 @@
 
 
 
-@if ((bool)ViewBag.Delete == true)
-{
-    <script>
-            alert("Registro Eliminado Correctamente")
-    </script>
-}
-
 
 <script>
-    function ObtenerId(valor)
-    {
+    function ObtenerId(valor) {
 
         $("#id_oculto").val(valor);
     }
-    function EliminarRegistro()
-    {
+    function EliminarRegistro() {
         var id = $("#id_oculto").val();
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Dato eliminado',
+            showConfirmButton: false,
+            timer: 1500
+        })
         window.location.href = "/Marca/DeleteMarca?Id_Marca=" + id;
     }
 </script>

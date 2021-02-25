@@ -3,6 +3,7 @@ using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,11 +17,11 @@ namespace renta_autos.Controllers
             return View();
         }
 
-        public ActionResult CreateOrUpdateMarca(int Id=0)
+        public ActionResult CreateOrUpdateMarca(int Id = 0)
         {
             if (Id > 0)
             {
-                using(var context = new Contextoss ())
+                using (var context = new Contextoss())
                 {
                     var data = context.Marcas.Where(x => x.Id_marca == Id).FirstOrDefault();
                     return View(data);
@@ -31,10 +32,10 @@ namespace renta_autos.Controllers
                 Marcas model = new Marcas();
                 return View(model);
             }
-            
+
 
         }
-         [HttpPost]
+        [HttpPost]
         public ActionResult CreateOrUpdateMarca(Marcas model)
         {
 
@@ -49,6 +50,9 @@ namespace renta_autos.Controllers
                     {
                         context.Marcas.Add(model);
                         context.SaveChanges();
+                        ViewBag.IsNew = IsNew;
+                        Thread.Sleep(2000);
+                        return RedirectToAction("CreateOrUpdateMarca");
                     }
                 }
                 else
@@ -59,25 +63,28 @@ namespace renta_autos.Controllers
 
                         data.Marca = model.Marca;
                         context.SaveChanges();
+                        ViewBag.IsNew = IsNew;
+                        Thread.Sleep(2000);
+                        return RedirectToAction("MostrarDatos");
                     }
                 }
 
-                ViewBag.IsNew = IsNew;
 
-                return View("Correcto");
+                // Marcas m = new Marcas()
+
             }
             else
             {
                 return View(model);
             }
-            
-           
+
+
 
         }
-        
-         public ActionResult MostrarDatos(bool isDelete=false)
+
+        public ActionResult MostrarDatos()
         {
-            ViewBag.Delete = isDelete;
+
             using (var context = new Contextoss())
             {
                 var data = context.Marcas.ToList();
@@ -85,8 +92,8 @@ namespace renta_autos.Controllers
 
                 return View();
             }
-        } 
-         public ActionResult DeleteMarca(int id_marca)
+        }
+        public ActionResult DeleteMarca(int id_marca)
         {
             using (var context = new Contextoss())
             {
@@ -95,11 +102,11 @@ namespace renta_autos.Controllers
                 context.Marcas.Remove(data);
                 context.SaveChanges();
             }
-
-            return RedirectToAction("MostrarDatos", new {isDelete=true });
+            Thread.Sleep(1000);
+            return RedirectToAction("MostrarDatos");
         }
 
-       
+
 
 
 
