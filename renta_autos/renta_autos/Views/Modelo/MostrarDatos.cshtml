@@ -7,109 +7,66 @@
 <br />
 <center>
     <h2>Listado de Modelos</h2>
-    <li class="btn btn-outline-primary"> @Html.ActionLink("Agregar", "CreateOrUpdateModelos", "Modelo")</li>
+    <a class="btn btn-outline-primary" @Html.ActionLink("Agregar", "CreateOrUpdateModelos", "Modelo")</a>
 </center>
 <br />
 <br />
 <br />
 <br />
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
 
-    <table class="table table-borderless table-responsive">
-        <thead>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Id</th>
-                <th>Modelos</th>
-                <th></th>
-                <th></th>
+                        <th>Id</th>
+                        <th>Modelos</th>
+                        <th></th>
+                        <th></th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @if (lista.Count() > 0)
-            {
-                foreach (var a in lista)
-                {
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <td>@a.Id_modelo</td>
-                <th>@a.Modelo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (lista.Count() > 0)
+                    {
+                        foreach (var a in lista)
+                        {
+                            <tr>
 
-                <th>
-                    @Html.ActionLink("Editar", "CreateOrUpdateModelos", "Modelo", new { id = a.Id_modelo }, new { @class = "btn btn-success" })
-                </th>
-                <td>
-                    <button type="button" onclick="ObtenerId(@a.Id_modelo)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
-                        Eliminar
-                    </button>
-                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
-                </td>
-            </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="10">
-                        <center>
-                            <b>¡No hay resultados para mostrar!</b>
-                        </center>
-                    </td>
-                </tr>
-            }
-        </tbody>
+                                <td>@a.Id_modelo</td>
+                                <td>@a.Modelo</td>
 
-    </table>
+                                <td>
+                                    @Html.ActionLink("Editar", "CreateOrUpdateModelos", "Modelo", new { id = a.Id_modelo }, new { @class = "btn btn-success" })
+                                </td>
+                                <td>
+                                    <button type="button" onclick="ObtenerId(@a.Id_modelo)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                                        Eliminar
+                                    </button>
+                                    @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="10">
+                                <center>
+                                    <b>¡No hay resultados para mostrar!</b>
+                                </center>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
 
+            </table>
 
+        </div>
+    </div>
+</div>
 
 
 
