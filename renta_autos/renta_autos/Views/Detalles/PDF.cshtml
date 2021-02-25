@@ -1,0 +1,76 @@
+﻿@using renta_autos.Models
+@{
+    Layout = null;
+    List<Alquiler> detalles = ViewBag.datos != null ? ViewBag.datos : new List<Alquiler>();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/bootstrap")
+    <meta name="viewport" content="width=device-width" />
+    <title>factura</title>
+    <style>
+        thead {
+            display: table-header-group
+        }
+
+        ;
+        tfoot {
+            display: table-row-group
+        }
+
+        ;
+        tr {
+            page-break-inside: avoid
+        }
+
+        ;
+    </style>
+</head>
+<body>
+    <table class="table table-bordered table-hover table-responsive">
+        <thead class="table table-dark">
+            <tr>
+                <th>ID Alquiler</th>
+                <th>Nombre Completo</th>
+                <th>Telefono</th>
+                <th>Dui</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Total a pagar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (detalles.Count() > 0)
+            {
+                foreach (var alq in detalles)
+                {
+                    <tr>
+
+                        <td>@alq.Cliente</td>
+                        <td>@alq.Telefono</td>
+                        <td>@alq.Dui</td>
+                        <td>@alq.Fecha_inicio</td>
+                        <td>@alq.Fecha_fin</td>
+                        <td>@Math.Round(alq.Total, 2)</td>
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8">
+                        <b>¡No hay datos que mostrar!</b>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</body>
+</html>

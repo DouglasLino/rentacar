@@ -1,0 +1,43 @@
+﻿@model renta_autos.Models.Modelos
+@using renta_autos.Models;
+@{
+    ViewBag.Title = "CreateOrUpdateModelos";
+}
+
+<br />
+<center>
+    @if (Model.Id_modelo > 0)
+    {
+        <h1>Editar Modelos</h1>
+    }
+    else
+    {
+        <h1>Agregar Modelos</h1>
+    }
+</center>
+<br />
+
+@using (Html.BeginForm("CreateOrUpdateModelos", "Modelo", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id_modelo)
+
+    <table>
+        <tr>
+            <td><label>Nombre Modelo :</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Modelo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Modelo, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <center>
+                    <input type="submit" class="btn btn-success" value="Enviar Datos" />
+                </center>
+            </td>
+        </tr>
+    </table>
+}
+
+

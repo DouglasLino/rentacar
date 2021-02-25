@@ -1,4 +1,5 @@
-﻿using System;
+﻿using renta_autos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,13 @@ namespace renta_autos.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (var context = new Contextoss())
+            {
+                var data = context.Vehiculos.Where(x => x.Estado == true).ToList();
+                ViewBag.datos = data;
+
+                return View();
+            }
         }
 
         public ActionResult About()
@@ -26,5 +33,7 @@ namespace renta_autos.Controllers
 
             return View();
         }
+
+        
     }
 }

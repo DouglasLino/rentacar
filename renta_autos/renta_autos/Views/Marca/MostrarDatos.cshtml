@@ -1,0 +1,110 @@
+﻿@using renta_autos.Models
+@{
+    ViewBag.Title = "MostrarDatos";
+    List<Marcas> lista = ViewBag.datos != null ? ViewBag.datos : new List<Marcas>();
+}
+
+<br />
+<center>
+    <h2>Listado de Marcas</h2>
+</center>
+<br />
+<br />
+<br />
+<br />
+<center>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (lista.Count() > 0)
+            {
+                foreach (var a in lista)
+                {
+                    <tr>
+                        <td>@a.Id_marca</td>
+                        <th>@a.Marca</th>
+
+                        <th>
+                            @Html.ActionLink("Editar", "CreateOrUpdateMarca", "Marca", new { id = a.Id_marca }, new { @class = "btn btn-success" })
+                        </th>
+                        <td>
+                            <button type="button" onclick="ObtenerId(@a.Id_marca)" class="btn btn-danger" data-toggle="modal" data-target="#EliminarModel">
+                                Eliminar
+                            </button>
+                            @*@Html.ActionLink("Eliminar", "DeleteAlumno", "Alumno", new { id_alumno = a.id }, new { @class = "btn btn-danger" })*@
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="10">
+                        <center>
+                            <b>¡No hay resultados para mostrar!</b>
+                        </center>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+
+<!-- Modal -->
+<div class="modal fade" id="EliminarModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <center>
+                    ¿DESEA ELIMINAR EL REGISTRO?
+                    <input type="hidden" id="id_oculto" />
+                </center>
+            </div>
+            <div class="modal-footer">
+                <CENTER>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" onclick="EliminarRegistro()" class="btn btn-danger">Si</button>
+                </CENTER>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if ((bool)ViewBag.Delete == true)
+{
+    <script>
+            alert("Registro Eliminado Correctamente")
+    </script>
+}
+
+
+<script>
+    function ObtenerId(valor)
+    {
+
+        $("#id_oculto").val(valor);
+    }
+    function EliminarRegistro()
+    {
+        var id = $("#id_oculto").val();
+        window.location.href = "/Marca/DeleteMarca?Id_Marca=" + id;
+    }
+</script>
+

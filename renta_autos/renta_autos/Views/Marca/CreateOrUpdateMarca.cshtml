@@ -1,0 +1,41 @@
+﻿@model renta_autos.Models.Marcas
+@using renta_autos.Models;
+@{
+    ViewBag.Title = "CreateOrUpdateMarca";
+}
+  
+<br />
+<center>
+    @if (Model.Id_marca > 0)
+    {
+        <h1>Editar Marca</h1>
+    }
+    else
+    {
+        <h1>Agregar Marca</h1>
+    }
+</center>
+<br />
+
+@using (Html.BeginForm("CreateOrUpdateMarca", "Marca", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id_marca)
+    
+    <table>
+        <tr>
+            <td><label>Nombre :</label></td>
+            <td>
+                @Html.TextBoxFor(x => x.Marca, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Marca, null, new { @class = "text-danger" })
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2">
+                <center>
+                    <input type="submit" class="btn btn-success" value="Enviar Datos" />
+                </center>
+            </td>
+        </tr>
+    </table>
+}
